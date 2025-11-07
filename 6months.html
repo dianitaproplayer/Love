@@ -1,0 +1,162 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>♡</title>
+  <link rel="icon" href="img/logo.jpg" type="image/x-icon">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fce4ec;
+    }
+    .screen {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .active {
+      display: flex;
+    }
+    .password-screen {
+      flex-direction: column;
+      background-image: url(img/contra.jpg);
+      background-size: cover;
+      color: white;
+      font-size: x-large;
+      font-weight: bold;
+      font-style: italic;
+    }
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 3px 5px 10px #f8bbd0;
+    }
+    .key {
+      background-color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 20px;
+      padding: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .key:hover {
+      background-color: #f48fb1;
+    }
+    .input-display {
+      font-size: 24px;
+      margin-top: 20px;
+      letter-spacing: 8px;
+    }
+    .notepad {
+        margin: auto;
+      background-color: #fff0f6;
+      border: 3px solid #f8bbd0;
+      padding: 20px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      text-align: left;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      line-height: 1.6;
+      box-shadow: 8px 8px 15px rgba(0,0,0,0.2);
+      position: relative;
+    }
+       .notepad h3 {
+      margin-top: 0;
+    }
+    .notepad img{
+        width: 500px;
+        border-radius: 25px;
+    }
+
+  </style>
+</head>
+<body>
+<div id="passwordScreen" class="screen password-screen active">
+  <h2>Contraseña :3</h2>
+  <div class="input-display" id="inputDisplay">••••••</div>
+  <div class="keypad">
+    <button class="key" onclick="enterDigit('1')">1</button>
+    <button class="key" onclick="enterDigit('2')">2</button>
+    <button class="key" onclick="enterDigit('3')">3</button>
+    <button class="key" onclick="enterDigit('4')">4</button>
+    <button class="key" onclick="enterDigit('5')">5</button>
+    <button class="key" onclick="enterDigit('6')">6</button>
+    <button class="key" onclick="enterDigit('7')">7</button>
+    <button class="key" onclick="enterDigit('9')">9</button>
+    <button class="key" onclick="enterDigit('8')">8</button>
+    <div></div>
+    <button class="key" onclick="enterDigit('0')">0</button>
+    <div></div>
+  </div>
+</div>
+<div id="notepadScreen" class="screen">
+
+  <div class="notepad">
+    <h3>7 de noviembre 2025 </h3>
+    <h4>Para mi querido Angelito ♡ </h4>
+    <p>
+      Mi chico hermoso, mi angel, mi sol, mi aire, mi felicidad. Estamos cumpliendo 6 meses el día de ahora. Y más que solo "cumplir"
+      lo celebramos y agradecemos con Diosito que nos ha dado esta maravillosa oportunidad de amarnos tanto como si no hubiese un mañana.
+    </p>
+    <p>
+      Honestamente, eres todo lo que necesito en mi vida. Ayer, ahora y mañana te necesito para siempre mi Angel, mi angelito 😭😭😭. JSJS sabes mi amor nunca de
+      los nunca había conocido a alguien como tu, me fascina, ME ENCANTAAAAAAAAA TANTOOOOO COMO ERES DIOS MIOOOO 😭. Eres sumamente especial en este mundo para mi, porque tu me has enseñado tanto
+      pero tanto sobre el amor, cosas tan valiosas como el verdadero significado de la mismisima palabra "amor". Cuando te digo que te amo lo digo más enserio
+      que nunca, porque mi amor estoy dispuesta a todo por ti, a todo por nosotros. Sé que juntos cumpliremos nuestras hermosas metas como pareja y personales
+      como un gran equipo apoyandonos el uno al otro mi niño. 
+    </p>
+    <p>
+    Estar contigo es paz, calma, serenidad, amor y confianza (En realidad hay un millón de emociones más :3),AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa no sabes lo fascinante que es pasar tiempo contigo angelito.
+    Me transportas a un mundo en donde todo lo exterior deja de tener relevancia y nuestro amor es una nube gigantesca que nos sostiene a ti y a mi ♡
+
+    Gracias mi niño hermoso por estos 6 meses llenos de felicidad y esfuerzos por parte de ambos. Gracias mi angelito hermoso, POR OTROO MES MÁS JUNTOOOOOOS WIIIIIIIIIIIIIIIIIII
+
+
+
+
+
+    </p>
+        <img src="img/lovee.jpeg" alt="" srcset="">
+
+    <p>
+      Te ama dianita. ♡
+    </p>
+  </div>
+</div>
+<script>
+  const correctPassword = '070425';
+  let input = '';
+  function enterDigit(digit) {
+    if (input.length < 6) {
+      input += digit;
+    }
+    const display = document.getElementById('inputDisplay');
+    display.textContent = input.padEnd(6, '•');
+    if (input.length === 6) {
+      if (input === correctPassword) {
+        document.getElementById('passwordScreen').classList.remove('active');
+        document.getElementById('notepadScreen').classList.add('active');
+      } else {
+        alert('Te equivocaste angelito, que barbaro unu *Dianita tite wawawa*');
+        input = '';
+        display.textContent = '••••••';
+      }
+    }
+  }
+</script>
+</body>
+</html>
